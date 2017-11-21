@@ -30,3 +30,5 @@
    gem 'factory_bot_rails'
    gem 'pry-rails'
  end
+ 
+ gem 'devise'
