@@ -1,7 +1,11 @@
 require 'rails_helper'
-
+require 'faker'
 RSpec.describe WelcomeController, type: :controller do
-
+  let(:my_user) { create(:user) }
+  before do 
+    @user = my_user
+    sign_in @user
+  end
   describe "GET #index" do
     it "returns http success" do
       get :index
