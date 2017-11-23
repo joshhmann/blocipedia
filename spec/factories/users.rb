@@ -1,9 +1,8 @@
+require 'faker'
 FactoryBot.define do
-  pass = Faker::Internet.password
-  
   factory :user do
     email Faker::Internet.email
-    password pass
-    
+    password Faker::Internet.password
+    confirmed_at Date.today
   end
 end
