@@ -83,8 +83,9 @@ RSpec.describe WikisController, type: :controller do
    it "redirects to the updated wiki" do 
      new_title = Faker::Overwatch.name
      new_body = Faker::Overwatch.quote
+     new_private = false
      
-     put :update, id: my_wiki.id, wiki: {title: new_title, body: new_body}
+     put :update, id: my_wiki.id, wiki: {title: new_title, body: new_body, private: new_private}
      expect(response).to redirect_to my_wiki
    end
  end
