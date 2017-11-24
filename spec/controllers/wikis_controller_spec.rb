@@ -13,16 +13,16 @@ RSpec.describe WikisController, type: :controller do
   
   describe "POST create" do
     it "increases the number of wikis by 1" do
-      expect { post :create, user_id: my_user.id, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user  } }.to change(Wiki, :count).by(1)
+      expect { post :create, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user  } }.to change(Wiki, :count).by(1)
     end
     
   it "assigns the new wiki to @wiki" do
-    post :create, user_id: my_user.id, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user   }
+    post :create, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user   }
     expect(assigns(:wiki)).to eq Wiki.last
   end
   
   it "redirects to the new wiki" do
-   post :create, user_id: my_user.id, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user  }
+   post :create, wiki: { title: Faker::Overwatch.name, body: Faker::Overwatch.quote, private: false, user: my_user  }
    expect(response).to redirect_to Wiki.last
   end
  end
