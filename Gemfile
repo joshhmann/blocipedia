@@ -19,7 +19,6 @@
  gem 'jquery-rails'
  gem 'turbolinks'
  gem 'bootstrap-sass'
- gem 'figaro'
 
  group :development, :test do
    gem 'byebug'
@@ -33,3 +32,5 @@
  
  gem 'devise'
  gem 'pundit'
+ gem 'stripe'
+ gem 'figaro'
