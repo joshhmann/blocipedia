@@ -12,6 +12,7 @@
     <% end %>
     <div class="col-md-4">
       <%= link_to "New Wiki", new_wiki_path, class: 'btn btn-success' %>
+      <%= link_to "Downgrade to standard", @user, method: :downgrade, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to downgrade?'} %>
     </div>
   </div>
 </div>

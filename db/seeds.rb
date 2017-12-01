@@ -10,9 +10,18 @@
 require 'faker'
 
 5.times do
-  User.create!(
+  standard = User.create!(
     email: Faker::Internet.email,
-    password: Faker::Internet.password
+    password: Faker::Internet.password,
+    role: 'standard'
+    )
+end
+
+5.times do
+  premium = User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    role: 'premium'
     )
 end
 
