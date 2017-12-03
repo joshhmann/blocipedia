@@ -26,7 +26,6 @@ class ChargesController < ApplicationController
       
     flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
     redirect_to wikis_path
-    
     current_user.update_attribute(:role, 'premium')
     
     rescue Stripe::CardError => e
@@ -34,4 +33,15 @@ class ChargesController < ApplicationController
     redirect_to new_charge_path
   end
   
+  def destroy
+    if current_user.premium?
+      current_user.update_attribute(:role, 'standard')
+      flash[:notice] = "You have been downgraded to standard."
+      redirect_to root_path
+    else
+      flash[:error] = "There was an error downgrading your account. Please try again."
+      redirect_to edit_user_registration_path
+    end
+  end
+
 end
