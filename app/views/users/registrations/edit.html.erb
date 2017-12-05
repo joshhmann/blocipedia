@@ -41,10 +41,12 @@
 
 Wanna go premium? <%= link_to "Upgrade Now", new_charge_path %>
 <%elsif current_user.role == 'premium' %>
-<h3>Downgrade my account</h3>
 
-<%= link_to "Back to standard", charge_path(12345), data: {confirm: "are you sure?"}, method: :delete %>
+<h3>Downgrade my account</h3>
+<%= link_to "Back to standard", downgrade_path, data: {confirm: "are you sure?"}, method: :get %>
+
 <% end %>
+
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
