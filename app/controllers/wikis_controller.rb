@@ -1,13 +1,19 @@
 class WikisController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show]
   def index
-    @wikis = Wiki.all
+    @wikis = Wiki.visible_to(current_user)
     authorize @wikis
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    
+    unless @wiki.private == false || current_user
+    flash[:alert] = "You must be signed in to view private topics."
+    redirect_to wikis_path
+    end
     authorize @wiki
+    
   end
 
   def new
@@ -17,6 +23,7 @@ class WikisController < ApplicationController
   
   def create 
     @wiki = Wiki.new(wiki_params)
+    @wiki.user = current_user
     authorize @wiki
     
     if @wiki.save
@@ -62,7 +69,7 @@ class WikisController < ApplicationController
   
       private 
   
-    def wiki_params 
-      params.require(:wiki).permit(:title, :body)
+    def wiki_params
+      params.require(:wiki).permit(:title, :body, :private)
     end
 end
