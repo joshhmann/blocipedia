@@ -67,7 +67,7 @@ class WikisController < ApplicationController
     end
   end
   
-      private 
+      private
     def wiki_params
       if current_user && current_user.premium?
         params.require(:wiki).permit(:title, :body, :private)
