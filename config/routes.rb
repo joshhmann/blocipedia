@@ -1,14 +1,20 @@
 Rails.application.routes.draw do
+  get 'collaborators/create'
+
+  get 'collaborators/destroy'
+
   get 'charges/new'
 
   get 'charges/create'
 
-  resources :wikis
+  resources :wikis 
+  resources :collaborations, only: [:create, :destroy]
   resources :charges, only: [:new, :create, :destroy]
   devise_for :users
   get 'about' => 'welcome#about'
   get 'downgrade' => 'users#downgrade'
   root 'welcome#index'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

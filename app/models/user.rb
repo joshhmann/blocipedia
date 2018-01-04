@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   after_initialize :default_to_standard
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
+  has_many :collaborations
   has_many :wikis
+  has_many :shared_wikis, through: :collaborations, source: :wiki
   enum role: [:standard, :premium, :admin]
   
   after_save :publish_wikis
