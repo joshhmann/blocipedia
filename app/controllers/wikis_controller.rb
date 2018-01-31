@@ -1,14 +1,13 @@
 class WikisController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show]
   def index
-    @wikis = Wiki.visible_to(current_user)
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
   end
 
   def show
     @wiki = Wiki.find(params[:id])
-    
-    unless @wiki.private == false || current_user
+    authorize @wiki
+    unless @wiki.private == false || current_user 
     flash[:alert] = "You must be signed in to view private topics."
     redirect_to wikis_path
     end
@@ -49,7 +48,7 @@ class WikisController < ApplicationController
       flash[:notice] = "Wiki page was updated successfully."
       redirect_to @wiki
     else
-      flash.now[:alert] = "Tehre was an error saving your page. Please try again."
+      flash.now[:alert] = "There was an error saving your page. Please try again."
       render :edit
     end
   end

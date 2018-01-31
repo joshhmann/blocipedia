@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
   
-  
   def downgrade
     if current_user.premium?
       current_user.standard!

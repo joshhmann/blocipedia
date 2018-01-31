@@ -1,7 +1,7 @@
 class CollaborationPolicy < ApplicationPolicy
 
   def create?
-    @user.present? && @user == @record.wiki.user
+    user.present? && user == record.user
   end
 
   def destroy?

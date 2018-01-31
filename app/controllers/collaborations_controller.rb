@@ -1,4 +1,6 @@
 class CollaborationsController < ApplicationController
+
+  
   def create
     wiki = Wiki.find(params[:wiki_id])
     user = User.find_by(email: params[:search])
