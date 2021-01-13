@@ -34,4 +34,4 @@
  gem 'pundit'
  gem 'stripe'
  gem 'figaro'
- gem 'redcarpet'
+ gem 'redcarpet', '>= 3.5.1'
