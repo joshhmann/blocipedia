@@ -26,7 +26,7 @@
    gem 'rspec-rails'
    gem 'shoulda'
    gem 'faker'
-   gem 'factory_bot_rails'
+   gem 'factory_bot_rails', '>= 6.5.0'
    gem 'pry-rails'
  end
  
