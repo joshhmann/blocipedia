@@ -30,7 +30,7 @@
    gem 'pry-rails'
  end
  
- gem 'devise'
+ gem 'devise', '>= 4.7.1'
  gem 'pundit'
  gem 'stripe'
  gem 'figaro'
