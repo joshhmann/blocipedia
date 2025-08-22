@@ -1,7 +1,7 @@
  source 'https://rubygems.org'
  
  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
- gem 'rails', '4.2.5'
+ gem 'rails', '5.2.7.1'
  
  group :production do
    gem 'pg'
@@ -10,12 +10,12 @@
  
  group :development do
    gem 'sqlite3'
-   gem 'web-console', '~> 2.0'
+   gem 'web-console', '~> 2.3', '>= 2.3.0'
  end
  
- gem 'sass-rails', '~> 5.0'
+ gem 'sass-rails', '~> 5.0', '>= 5.0.7'
  gem 'uglifier', '>= 1.3.0'
- gem 'coffee-rails', '~> 4.1.0'
+ gem 'coffee-rails', '~> 4.2.2'
  gem 'jquery-rails'
  gem 'turbolinks'
  gem 'bootstrap-sass'
@@ -30,7 +30,7 @@
    gem 'pry-rails'
  end
  
- gem 'devise'
+ gem 'devise', '>= 4.4.2'
  gem 'pundit'
  gem 'stripe'
  gem 'figaro'
