@@ -32,6 +32,6 @@
  
  gem 'devise'
  gem 'pundit'
- gem 'stripe'
+ gem 'stripe', '>= 5.0.0'
  gem 'figaro'
  gem 'redcarpet'
